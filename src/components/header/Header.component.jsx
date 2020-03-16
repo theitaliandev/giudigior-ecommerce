@@ -10,20 +10,27 @@ const Header = ({ currentUser }) => (
     <Link to="/" className="logo-container">
       <Logo />
     </Link>
-    <div className="options">
-      <Link to="/shop" className="option">
-        SHOP
-      </Link>
-      {currentUser ? (
-        <div className="option" onClick={() => auth.signOut()}>
+
+    {currentUser ? (
+      <div className="options">
+        <div className="option">Hi, {currentUser.displayName}</div>
+        <Link to="/shop" className="option">
+          SHOP
+        </Link>
+        <div className="option button" onClick={() => auth.signOut()}>
           LOG OUT
         </div>
-      ) : (
+      </div>
+    ) : (
+      <div className="options">
+        <Link to="/shop" className="option">
+          SHOP
+        </Link>
         <Link to="/signin" className="option">
           LOGIN
         </Link>
-      )}
-    </div>
+      </div>
+    )}
   </div>
 );
 

@@ -20,6 +20,11 @@
 
     .option {
       padding: 10px 15px;
+      &.button {
+        cursor: pointer;
+      }
+    }
+    .a {
       cursor: pointer;
     }
   }
