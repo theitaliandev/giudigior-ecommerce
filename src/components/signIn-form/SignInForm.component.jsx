@@ -1,6 +1,8 @@
 import React from "react";
 import { signIn } from "../../firebase/firebase";
 
+import FormInput from "../form-input/FormInput.component";
+
 class SignInForm extends React.Component {
   constructor(props) {
     super(props);
@@ -30,17 +32,19 @@ class SignInForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input
+          <FormInput
             name="email"
+            label="email"
             value={this.state.email}
             type="email"
-            onChange={this.handleChange}
+            handleChange={this.handleChange}
           />
-          <input
+          <FormInput
             name="password"
+            label="password"
             value={this.state.password}
             type="password"
-            onChange={this.handleChange}
+            handleChange={this.handleChange}
           />
           <input type="submit" value="Login" />
           <button onClick={signIn}>SignIn With Google</button>
