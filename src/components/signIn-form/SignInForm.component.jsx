@@ -1,7 +1,9 @@
 import React from "react";
 import { signIn } from "../../firebase/firebase";
 
+import "./signIn.styles.scss";
 import FormInput from "../form-input/FormInput.component";
+import CustomButton from "../custom-button/CustomButton.component";
 
 class SignInForm extends React.Component {
   constructor(props) {
@@ -30,7 +32,9 @@ class SignInForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="sign-in">
+        <h2>I already have an account</h2>
+        <span>Sign in with your email and password</span>
         <form onSubmit={this.handleSubmit}>
           <FormInput
             name="email"
@@ -46,8 +50,12 @@ class SignInForm extends React.Component {
             type="password"
             handleChange={this.handleChange}
           />
-          <input type="submit" value="Login" />
-          <button onClick={signIn}>SignIn With Google</button>
+          <div className="buttons">
+            <CustomButton type="submit">Login</CustomButton>
+            <CustomButton onClick={signIn} isGoogleSignIn>
+              SignIn With Google
+            </CustomButton>
+          </div>
         </form>
       </div>
     );
